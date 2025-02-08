@@ -117,6 +117,14 @@ if ! shopt -oq posix; then
 fi
 
 # Stuff Caleb added
+# Used for pyenv which installs different versions of python 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
+# Activates the Python Virtual Environment on shell startup
+source ~/projects/comma.ai_controls_challenge/.venv/bin/activate
+
 # Manual ssh key startup
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/githubkey
@@ -143,14 +151,6 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
-
-# Used for pyenv which installs different versions of python 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-# Activates the Python Virtual Environment on shell startup
-source ~/projects/comma.ai_controls_challenge/.venv/bin/activate
 
 # Aliases for commond commands
 alias c='clear'
