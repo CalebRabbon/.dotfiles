@@ -3,8 +3,11 @@
 1. Go to ~/ or $HOME directory
 2. git clone git@github.com:CalebRabbon/.dotfiles.git
 3. In the shell run the following commands
-4. chmod +x ./setup.sh
-5. ./setup.sh
+```
+cd ~/.dotfiles
+chmod +x ./setup.sh
+./setup.sh
+```
 ## Notes
 This will create symlinks in the user's ~/ or $HOME directory to the files in the ~/.dotfiles/ folder.
 
