@@ -117,9 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 # Stuff Caleb added
+# Manual ssh key startup
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/githubkey
+
 # SSH Key auto login for GitHub
-#eval "$(ssh-agent -s)"
-#ssh-add ~/.ssh/githubkey
 env=~/.ssh/agent.env
 
 agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
@@ -146,6 +148,7 @@ unset env
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+
 # Activates the Python Virtual Environment on shell startup
 source ~/projects/comma.ai_controls_challenge/.venv/bin/activate
 
