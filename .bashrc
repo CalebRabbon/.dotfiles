@@ -154,13 +154,19 @@ source ~/projects/comma.ai_controls_challenge/.venv/bin/activate
 
 # Aliases for commond commands
 alias c='clear'
-alias gs='git status'
 alias b='cd ..'
 alias cdc='cd ~/projects/comma.ai_controls_challenge'
 alias brc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 alias trc='vim ~/.tmux.conf'
 alias vrc='vim ~/.vimrc'
+
+# Git aliases
+alias ga='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/githubkey' # Auth
+alias gs='git status'
+alias gc='git commit -am'
+alias gpush='git push'
+alias gpull='git pull'
 
 # Unique aliases for projects
 alias sp='source ~/projects/comma.ai_controls_challenge/.venv/bin/activate'
