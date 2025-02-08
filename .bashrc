@@ -162,11 +162,12 @@ alias trc='vim ~/.tmux.conf'
 alias vrc='vim ~/.vimrc'
 
 # Git aliases
-alias ga='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/githubkey' # Auth
+alias gauth='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/githubkey' # Auth
+alias gadd='git add'
 alias gs='git status'
 alias gc='git commit -am'
-alias gpush='git push'
-alias gpull='git pull'
+alias gp='git push'
+alias gu='git pull'
 
 # Unique aliases for projects
 alias sp='source ~/projects/comma.ai_controls_challenge/.venv/bin/activate'

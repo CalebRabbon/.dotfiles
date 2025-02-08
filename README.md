@@ -1,9 +1,9 @@
 # .dotfiles
 ## Installation
-1. Go to ~/ or $HOME directory
-2. git clone git@github.com:CalebRabbon/.dotfiles.git
-3. In the shell run the following commands
+1. In the shell run the following commands
 ```
+cd ~/
+git clone https://github.com/CalebRabbon/.dotfiles.git
 cd ~/.dotfiles
 chmod +x ./setup.sh
 ./setup.sh
