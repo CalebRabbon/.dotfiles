@@ -24,10 +24,14 @@ git config --global user.name
 git config --global user.email "caleb.rabbon@gmail.com"
 git config --global user.email
 
+echo -e "\033[0;32m\nInstalling Vim Plugins\033[0m"
 vim +PluginInstall +qall
-echo -e "\033[0;32m\nInstalled Vim Plugins\033[0m"
+echo -e "\033[0;32mInstalled Vim Plugins\033[0m"
 
+echo -e "\033[0;32m\nInstalling Tmux Plugins\033[0m"
+echo -e "\033[0;32mStarted tmux session\033[0m"
+tmux new-session -d
 tmux source ~/.tmux.conf
-echo -e "\033[0;32m\nInstalled Tmux Plugins\033[0m"
+echo -e "\033[0;32mSourced ~/.tmux.conf\033[0m"
 
 echo -e "\033[31mWARNING: Run tmux then run Prefix+I to install the rest of the plugins\033[0m"

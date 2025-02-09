@@ -2,8 +2,7 @@
 ## Installation
 1. In the shell run the following commands
 ```
-git clone https://github.com/CalebRabbon/.dotfiles.git ~/
-chmod +x ~/.dotfiles/setup.sh
+git clone https://github.com/CalebRabbon/.dotfiles.git ~/.dotfiles
 ./.dotfiles/setup.sh
 ```
 ## Notes
