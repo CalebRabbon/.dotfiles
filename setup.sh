@@ -25,6 +25,9 @@ git config --global user.email "caleb.rabbon@gmail.com"
 git config --global user.email
 git remote set-url origin git@github.com:CalebRabbon/.dotfiles.git
 
+echo -e "\033[0;32m\nSourcing ~/.bashrc\033[0m"
+source ~/.bashrc
+
 echo -e "\033[0;32m\nInstalling Vim Plugins\033[0m"
 vim +PluginInstall +qall
 echo -e "\033[0;32mInstalled Vim Plugins\033[0m"
