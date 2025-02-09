@@ -18,6 +18,12 @@ ln -s -t ~/ ~/.dotfiles/.vimrc -f -v
 ln -s -t ~/ ~/.dotfiles/.tmux.conf -f -v
 echo -e "\033[0;32m\nFinished creating symlinks\033[0m"
 
+echo -e "\033[0;32m\nSetting up default github username and email\033[0m"
+git config --global user.name "Caleb Rabbon"
+git config --global user.name
+git config --global user.email "caleb.rabbon@gmail.com"
+git config --global user.email
+
 vim +PluginInstall +qall
 echo -e "\033[0;32m\nInstalled Vim Plugins\033[0m"
 
