@@ -2,11 +2,9 @@
 ## Installation
 1. In the shell run the following commands
 ```
-cd ~/
-git clone https://github.com/CalebRabbon/.dotfiles.git
-cd ~/.dotfiles
-chmod +x ./setup.sh
-./setup.sh
+git clone https://github.com/CalebRabbon/.dotfiles.git ~/
+chmod +x ~/.dotfiles/setup.sh
+./.dotfiles/setup.sh
 ```
 ## Notes
 This will create symlinks in the user's ~/ or $HOME directory to the files in the ~/.dotfiles/ folder.
