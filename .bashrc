@@ -162,7 +162,7 @@ alias trc='vim ~/.tmux.conf'
 alias vrc='vim ~/.vimrc'
 
 # git aliases
-alias gauth='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/githubkey' # Auth
+alias gauth='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519' # Auth
 alias gadd='git add'
 alias gs='git status'
 alias gc='git commit -am'
