@@ -160,6 +160,8 @@ alias brc='vim ~/.bashrc'
 alias sbrc='source ~/.bashrc'
 alias trc='vim ~/.tmux.conf'
 alias vrc='vim ~/.vimrc'
+alias src='nvim ~/.dotfiles/setup.sh'
+alias rsrc='~/.dotfiles/setup.sh'
 
 # git aliases
 alias gauth='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519' # Auth

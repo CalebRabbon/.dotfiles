@@ -9,15 +9,31 @@ echo -e "\033[0;32mStart\033[0m"
 echo -e "\033[0;32m\nUpdating system\033[0m"
 sudo apt update
 
-echo -e "\033[0;32m\nCloning Vundle plugin for vim\033[0m"
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-# Removing .git folder so you can add it to your own repo later
-rm -rf ~/.vim/bundle/Vundle.vim/.git
+# Vundle.vim Folder name
+folder_name=~/.vim/bundle/Vundle.vim
 
-echo -e "\033[0;32m\nCloning Tmux Plugin Manager for tmux plugins\033[0m"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# Removing .git folder so you can add it to your own repo later
-rm -rf ~/.tmux/plugins/tpm/.git
+# Check if the folder exists
+if [ ! -d "$folder_name" ]; then
+    # Folder doesn't exist, create it
+    echo -e "\033[0;32m\nCloning Vundle plugin for vim\033[0m"
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+else
+    # Folder exists, do nothing
+    echo "$folder_name already exists."
+fi
+
+# tmux tpm folder name
+folder_name=~/.tmux/plugins/tpm
+
+# Check if the folder exists
+if [ ! -d "$folder_name" ]; then
+    # Folder doesn't exist, create it
+    echo -e "\033[0;32m\nCloning Tmux Plugin Manager for tmux plugins\033[0m"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    # Folder exists, do nothing
+    echo "$folder_name already exists."
+fi
 
 echo -e "\033[0;32m\nCreating symlinks\033[0m"
 ln -s -t ~/ ~/.dotfiles/.bashrc -f -v
@@ -41,8 +57,23 @@ echo -e "\033[0;32mInstalled Vim Plugins\033[0m"
 
 echo -e "\033[0;32m\nInstalling Tmux Plugins\033[0m"
 echo -e "\033[0;32mStarted tmux session\033[0m"
-tmux new-session -d
-tmux source ~/.tmux.conf
+
+if [ -n "$TMUX" ]; then
+  echo "You are inside a tmux session."
+else
+  echo "You are not inside a tmux session."
+fi
+
+# Check if there are any active tmux sessions
+if tmux ls &>/dev/null; then
+    echo "There is an active tmux server running."
+    tmux source ~/.tmux.conf
+else
+    echo "No active tmux server found, starting one in the background"
+    tmux new-session -d
+    tmux source ~/.tmux.conf
+fi
+
 echo -e "\033[0;32mSourced ~/.tmux.conf\033[0m"
 echo -e "\033[31mWARNING: Run tmux then run Prefix+I to install the rest of the plugins\033[0m"
 
@@ -57,6 +88,13 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
+sudo apt install python3.12-venv
+pyenv install 3.11.11
+pyenv global 3.11.11
+python3 -m venv ~/projects/comma.ai_controls_challenge/.venv
+sudo apt install pip
+pip install --upgrade pip
+
 echo -e "\033[0;32m\nInstalling Neovim\033[0m"
 sudo apt install neovim
 
@@ -67,4 +105,13 @@ git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 
 # Other dependencies
+
+# Depednecies for getting started with kickstart.nvim
 sudo apt install unzip
+sudo apt install ripgrep
+
+# VIM system clipboard
+sudo apt install vim-gtk3
+
+# For testing Lua files for Neovim
+sudo apt install lua5.4
